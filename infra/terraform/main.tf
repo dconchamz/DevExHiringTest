@@ -5,10 +5,12 @@ module "vpc" {
 }
 
 module "eks" {
-  source        = "./modules/eks"
-  cluster_name  = var.cluster_name
-  subnet_ids    = module.vpc.subnet_ids
-  vpc_id        = module.vpc.vpc_id
+  source            = "./modules/eks"
+  cluster_name      = var.cluster_name
+  eks_cluster_role  = var.eks_cluster_role
+  eks_node_role     = var.eks_node_role
+  subnet_ids        = module.vpc.subnet_ids
+  vpc_id            = module.vpc.vpc_id
 }
 
 module "node_group" {

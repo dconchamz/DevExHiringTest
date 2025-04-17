@@ -28,3 +28,13 @@ variable "node_group_name" {
   description = "Node Group Name"
   type        = string
 }
+
+variable "eks_cluster_role" {
+  description = "EKS Cluster Role"
+  type        = string
+}
+
+variable "eks_node_role" {
+  description = "EKS Node Role"
+  type        = string
+}

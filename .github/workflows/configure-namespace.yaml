@@ -1,4 +1,4 @@
-name: DevEx Main Infrastructure
+name: DevEx Configure Namespaces
 
 on:
   workflow_dispatch:
@@ -44,7 +44,7 @@ jobs:
       working-directory: infra/terraform
 
     - name: Terraform Plan
-      run: terraform plan -var-file="${{ github.event.inputs.environment }}.tfvars" -target=module.vpc -target=module.eks -target=module.node_group -target=module.vpc -target=module.eks -target=module.ecr
+      run: terraform plan -var-file="${{ github.event.inputs.environment }}.tfvars"
       working-directory: infra/terraform
       env:
         TF_LOG: INFO
@@ -62,7 +62,7 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.4.0
-        
+
     - name: Configure AWS credentials from IAM Role (OIDC)
       uses: aws-actions/configure-aws-credentials@v2
       with:
@@ -73,9 +73,9 @@ jobs:
     - name: Terraform Init
       run: terraform init
       working-directory: infra/terraform
-      
+
     - name: Terraform Apply
-      run: terraform apply -auto-approve -var-file="${{ github.event.inputs.environment }}.tfvars" -target=module.vpc -target=module.eks -target=module.node_group -target=module.ecr
+      run: terraform apply -auto-approve -var-file="${{ github.event.inputs.environment }}.tfvars"
       working-directory: infra/terraform
       env:
         TF_LOG: INFO

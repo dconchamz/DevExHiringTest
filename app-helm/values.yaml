@@ -1,0 +1,34 @@
+replicaCount: 2
+containerPort: 3000
+image:
+  repository: 269633716143.dkr.ecr.us-east-1.amazonaws.com/app-node-be
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: false
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+namespace: backend
+
+serviceAccount:
+  create: true
+  name: ""
+
+autoscaling:
+  enabled: true  # Habilita el autoscaling
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80

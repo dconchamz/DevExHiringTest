@@ -1,0 +1,16 @@
+/app/node_modules/
+# Ignorar node_modules en la carpeta app/
+app/node_modules/
+
+# Ignorar los node_modules en todo el proyecto
+node_modules/
+
+# Ignorar archivos de log
+*.log
+
+# Ignorar configuraciones de IDEs
+.vscode/
+.idea/
+
+# Ignorar archivos de compilación
+dist/
