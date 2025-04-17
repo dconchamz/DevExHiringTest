@@ -26,6 +26,8 @@ La solución para el Desafío Técnico Devex tiene la siguiente estructura direc
 - A lo largo de puntos anteriores mencioné algunos bonus que agregué a la solución, tambien creo que es importante resaltar que usé Helm como gestor de paquetes de Kubernetes, el cual facilita la construcción de los componentes de kubernetes(como deployments, services, configmaps, etc) y se utiliza en el CD
 - Los tags de cada imagen se generan desde el CI, por motivos de tiempo no utilicé tag semánticos(Major,Minior, dispatch) pero considero que la forma en que estoy taggeando es bastante funcional y mejor que usar latest.
 - si bien la aplicación en si se expone en el puerto 3000, dentro del chart de helm la mapeo al puerto 80.
+- Para el mensaje del commit estoy utilizando las buenas practicas de conventional commits: https://www.conventionalcommits.org/en/v1.0.0/, donde el mensaje es "feat: mensaje"
+- Se puede haber hecho protected branches y haber protegido master pero en honor al tiempo sería una deuda técnica.
 
 # Pipelines
 
